@@ -13,18 +13,24 @@ server.listen(port);
 app.use(express.static(__dirname + "/public"));
 
 io.on("connection", function(socket){
-    app.post('/', function(req, res){
-        console.log("REEEE");
-        let body = '';
-        req.on('data', chunk => {
-            body += chunk.toString();
-        });
+    // app.post('/', function(req, res){
+    //     console.log("REEEE");
+    //     let body = '';
+    //     req.on('data', chunk => {
+    //         body += chunk.toString();
+    // });
+    //
+    //     req.on('end', () => {
+    //         console.log(body);
+    //         socket.broadcast.emit("update", {image: body});
+    //         res.set('Content-type', "text/plain");
+    //         res.send("You sent data to the server!");
+    //     });
+    // });
 
-        req.on('end', () => {
-            console.log(body);
-            socket.broadcast.emit("update", {image: body});
-            res.set('Content-type', "text/plain");
-            res.send("You sent data to the server!");
-        });
+    socket.on('message', function(msg){
+        if(msg typeof String && msg != Null){
+            socket.broadcast.emit("update", {image: msg});
+        }
     });
 });
