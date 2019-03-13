@@ -18,10 +18,10 @@ io.on("connection", function(socket){
         let body = '';
         req.on('data', chunk => {
             body += chunk.toString();
-            console.log(body);
         });
 
         req.on('end', () => {
+            console.log(body);
             socket.broadcast.emit("update", {image: body});
         });
         res.set('Content-type', "text/plain");
