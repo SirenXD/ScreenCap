@@ -22,7 +22,7 @@ io.on("connection", function(socket){
 
         req.on('end', () => {
             socket.broadcast.emit("update", {image: body});
-        })
+        });
         res.set('Content-type', "text/plain");
         res.send("You sent data to the server!");
     });
