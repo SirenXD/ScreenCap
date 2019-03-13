@@ -29,7 +29,7 @@ io.on("connection", function(socket){
     // });
 
     socket.on('message', function(msg){
-        if(msg typeof String && msg != Null){
+        if( typeof msg == "string" && msg != Null){
             socket.broadcast.emit("update", {image: msg});
         }
     });
