@@ -14,6 +14,7 @@ app.use(express.static(__dirname + "/public"));
 
 io.on("connection", function(socket){
     app.post('/', function(req, res){
+        console.log("REEEE");
         let body = '';
         req.on('data', chunk => {
             body += chunk.toString();

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const bgColor = "#899bb5";
 
     socket.on("update", function(data){
-
         console.log("drawing image");
         draw(data);
     });
