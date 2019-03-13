@@ -29,7 +29,9 @@ io.on("connection", function(socket){
     // });
 
     socket.on('message', function(msg){
+        console.log("Message recieved!");
         if( typeof msg == "string" && msg != Null){
+            console.log("Message is a String!");
             socket.broadcast.emit("update", {image: msg});
         }
     });
