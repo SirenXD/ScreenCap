@@ -23,8 +23,8 @@ io.on("connection", function(socket){
         req.on('end', () => {
             console.log(body);
             socket.broadcast.emit("update", {image: body});
+            res.set('Content-type', "text/plain");
+            res.send("You sent data to the server!");
         });
-        res.set('Content-type', "text/plain");
-        res.send("You sent data to the server!");
     });
 });
