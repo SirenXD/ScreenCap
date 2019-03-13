@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function draw(data){
         image.src = "data:image/png;base64," + data["image"];
+        console.log("data:image/png;base64," + data["image"]);
     }
 
     init();
