@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function(){
         // console.log(data);
 
         //data = atob(data);
-
-        //console.log("data:image/png;base64," + data);
-        //stream.src = "data:image/png;base64," + data;
         //context.drawImage(img1,0,0);
     }
 
