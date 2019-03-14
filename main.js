@@ -5,7 +5,8 @@ var server = http.createServer(app);
 var io = require("socket.io")(server, {'origins' : "*:*"});
 var fs = require("fs");
 
-const port = process.env.PORT || 5000;
+//const port = process.env.PORT || 5000;
+const port = 7777;
 
 server.listen(port);
 
@@ -27,12 +28,10 @@ io.on("connection", function(socket){
     //         res.send("You sent data to the server!");
     //     });
     // });
-
-    socket.on('message', function(msg){
-        console.log("Message recieved!");
-        if( typeof msg == "string" && msg != Null){
-            console.log("Message is a String!");
-            socket.broadcast.emit("update", {image: msg});
-        }
+    socket.on('newData', function(msg){
+        let buff = new Buffer(msg.data);
+        let utfData = buff.toString('utf8');
+        //console.log(utfData);
+        socket.broadcast.emit("update", {image: utfData});
     });
 });
