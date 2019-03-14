@@ -5,8 +5,8 @@ var server = http.createServer(app);
 var io = require("socket.io")(server, {'origins' : "*:*"});
 var fs = require("fs");
 
-//const port = process.env.PORT || 5000;
-const port = 7777;
+const port = process.env.PORT || 5000;
+// const port = 7777;
 
 server.listen(port);
 
