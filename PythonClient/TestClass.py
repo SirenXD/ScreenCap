@@ -111,5 +111,9 @@ def method():
             prepThread.join()
             break
 
+        #Limit the number of times we cycle visual updates, because they're taxing to send to the server then de-encode
+        #Could probably do this a better way
+        time.sleep(1/30)
+
 if __name__ == "__main__":
     init()
